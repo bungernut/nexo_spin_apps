@@ -1,1 +1,8 @@
 #docker_compose
+version: '2'
+services:
+  app:
+    build: ./flask
+    image: myflask:1.0
+    ports:
+    - "8000:8000/tcp"

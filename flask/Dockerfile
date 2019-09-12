@@ -28,13 +28,12 @@ RUN \
         gunicorn                    \
         pymongo
 
-ADD *.py flaskr/ /srv/
-#ADD templates /srv/templates/
+ADD app /srv
 
 WORKDIR /srv
 ENV FLASK_APP=flaskr
 ENV FLASK_ENV=development
 RUN ls
 #RUN chmod +x docker-entrypoint.sh
-#CMD ["gunicorn", "app:app", "--name", "app", "-b", ":8000", "--log-level=debug", "--log-file=-"]
+CMD ["gunicorn", "app:app", "--name", "app", "-b", ":8000", "--log-level=debug", "--log-file=-"]
 #ENTRYPOINT ["./docker-entrypoint.sh"]
